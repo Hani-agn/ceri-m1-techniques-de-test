@@ -19,16 +19,16 @@ public class IPokemonFactoryTest {
     @Test
     public void testCreatePokemon() throws PokedexException {
         // Configuration des métadonnées pour un Pokémon spécifique
-        int index = 1; // Index pour Bulbasaur, par exemple
-        String name = "Bulbasaur";
-        int attack = 49;
-        int defense = 49;
-        int stamina = 45;
-        int cp = 550;
-        int hp = 60;
-        int dust = 3000;
-        int candy = 1;
-        double iv = 0.85; // 85% perfection
+        int index = 0; // Index pour Bulbasaur, par exemple
+        String name = "Bulbizarre";
+        int attack = 126;
+        int defense = 126;
+        int stamina = 90;
+        int cp = 613;
+        int hp = 64;
+        int dust = 4000;
+        int candy = 4;
+        double iv = 56;
 
         // Configurer les métadonnées à renvoyer par le metadataProvider mock
         when(metadataProvider.getPokemonMetadata(index)).thenReturn(new PokemonMetadata(index, name, attack, defense, stamina));
