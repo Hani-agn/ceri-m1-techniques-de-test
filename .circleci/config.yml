@@ -11,7 +11,7 @@ jobs:
           name: Run Maven Test
           command: mvn test
       - run:
-          name: Run tests and publish coverage
+          name: upload-to-codecov
           command: |
             mvn clean test
             bash <(curl -s https://codecov.io/bash)
