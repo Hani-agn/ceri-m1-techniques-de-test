@@ -35,3 +35,7 @@ workflows:
       - upload-to-codecov:
           requires:
             - build-and-test
+
+# Ajout de la définition de la variable d'environnement
+environment:
+  CODECOV_TOKEN: e66444a8-cca7-49d0-b240-1cea17866fa7
