@@ -1,5 +1,15 @@
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@4.0.1
+
+workflows:
+  version: 2
+  upload-to-codecov:
+    jobs:
+      - checkout
+      - codecov/upload
+
 jobs:
   build-and-test:
     docker:
@@ -9,14 +19,9 @@ jobs:
       - run:
           name: Run Maven Test
           command: mvn test
-      - run:
-          name: Run tests and publish coverage
-          command: |
-            mvn clean test
-            bash <(curl -s https://codecov.io/bash)
+      - codecov/upload:
+          token: YOUR_CODECOV_TOKEN
 
-workflows:
-  version: 2
   build-and-test-on-master:
     jobs:
       - build-and-test:
