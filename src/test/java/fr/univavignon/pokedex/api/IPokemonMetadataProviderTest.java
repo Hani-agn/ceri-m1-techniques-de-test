@@ -6,6 +6,7 @@ import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -38,13 +39,30 @@ public class IPokemonMetadataProviderTest {
     public void testGetPokemonMetadataThrowsExceptionWhenIndexIsInvalid() throws PokedexException {
         // Configuration du mock pour lancer une exception quand un index invalide est demandé
         int invalidIndex = 151;
-        Mockito.when(mockMetadataProvider.getPokemonMetadata(invalidIndex))
+        when(mockMetadataProvider.getPokemonMetadata(invalidIndex))
                 .thenThrow(new PokedexException("Invalid index: " + invalidIndex));
 
-        // Vérification que l'exception est bien lancée avec cet index
+        // Appel de la méthode pour obtenir les métadonnées du Pokémon avec un index invalide
+        // Ceci doit lancer une exception
         assertThrows(PokedexException.class, () -> {
             mockMetadataProvider.getPokemonMetadata(invalidIndex);
         });
     }
+    @Test
+    public void testGetPokemonMetadataThrowsExceptionWhenIndexIsInvalid2() throws PokedexException {
+        // Configuration du mock pour lancer une exception quand un index invalide est demandé
+        int invalidIndex = -1;
+        when(mockMetadataProvider.getPokemonMetadata(invalidIndex))
+                .thenThrow(new PokedexException("Invalid index: " + invalidIndex));
+
+        // Appel de la méthode pour obtenir les métadonnées du Pokémon avec un index invalide
+        // Ceci doit lancer une exception
+        assertThrows(PokedexException.class, () -> {
+            mockMetadataProvider.getPokemonMetadata(invalidIndex);
+        });
+    }
+
+
+
 
 }

@@ -21,9 +21,9 @@ public class IPokemonFactoryTest {
         // Configuration des métadonnées pour un Pokémon spécifique
         int index = 0; // Index pour Bulbasaur, par exemple
         String name = "Bulbizarre";
-        int attack = 126;
-        int defense = 126;
-        int stamina = 90;
+        int baseAttack = 126;
+        int baseDefense = 126;
+        int baseStamina = 90;
         int cp = 613;
         int hp = 64;
         int dust = 4000;
@@ -31,11 +31,17 @@ public class IPokemonFactoryTest {
         double iv = 56;
 
         // Configurer les métadonnées à renvoyer par le metadataProvider mock
-        when(metadataProvider.getPokemonMetadata(index)).thenReturn(new PokemonMetadata(index, name, attack, defense, stamina));
+        PokemonMetadata metadata = new PokemonMetadata(index, name, baseAttack, baseDefense, baseStamina);
+        when(metadataProvider.getPokemonMetadata(index)).thenReturn(metadata);
+
+        // Calculer les statistiques réelles du Pokémon en fonction de ses métadonnées et des valeurs données
+        int actualAttack = baseAttack + (cp / 10);
+        int actualDefense = baseDefense + (cp / 10);
+        int actualStamina = baseStamina + (hp / 10);
 
         // Configurer le pokemonFactory mock pour créer un nouveau Pokémon avec les attributs donnés
         when(pokemonFactory.createPokemon(index, cp, hp, dust, candy))
-                .thenReturn(new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv));
+                .thenReturn(new Pokemon(index, name, actualAttack, actualDefense, actualStamina, cp, hp, dust, candy, iv));
 
         // Créer un Pokémon à l'aide de la factory mockée
         Pokemon pokemon = pokemonFactory.createPokemon(index, cp, hp, dust, candy);
@@ -44,9 +50,9 @@ public class IPokemonFactoryTest {
         assertAll("pokemon",
                 () -> assertEquals(index, pokemon.getIndex()),
                 () -> assertEquals(name, pokemon.getName()),
-                () -> assertEquals(attack, pokemon.getAttack()),
-                () -> assertEquals(defense, pokemon.getDefense()),
-                () -> assertEquals(stamina, pokemon.getStamina()),
+                () -> assertEquals(actualAttack, pokemon.getAttack()),
+                () -> assertEquals(actualDefense, pokemon.getDefense()),
+                () -> assertEquals(actualStamina, pokemon.getStamina()),
                 () -> assertEquals(cp, pokemon.getCp()),
                 () -> assertEquals(hp, pokemon.getHp()),
                 () -> assertEquals(dust, pokemon.getDust()),
@@ -64,27 +70,21 @@ public class IPokemonFactoryTest {
             int stamina = invocation.getArgument(4); // Simulant l'endurance
 
             // Validation de l'attaque, la défense et l'endurance
-            if (attack < 0 || attack > 15) {
-                throw new IllegalArgumentException("Attack value out of bounds");
-            }
-            if (defense < 0 || defense > 15) {
-                throw new IllegalArgumentException("Defense value out of bounds");
-            }
-            if (stamina < 0 || stamina > 15) {
-                throw new IllegalArgumentException("Stamina value out of bounds");
+            if (attack < 0 || attack > 15 || defense < 0 || defense > 15 || stamina < 0 || stamina > 15) {
+                throw new IllegalArgumentException("Attribute value out of bounds");
             }
 
-            // Si les attributs sont valides, retourner un objet Pokémon mocké
+            // Retourner un objet Pokémon mocké si les attributs sont valides
             return new Pokemon(1, "Pikachu", attack, defense, stamina, 500, 60, 1000, 50, 0.8);
         });
 
         // Vérification que l'exception est bien lancée pour chaque attribut hors des limites
         assertThrows(IllegalArgumentException.class,
-                () -> pokemonFactory.createPokemon(1, 500, 60, 16, 10), "Attack value out of bounds");
+                () -> pokemonFactory.createPokemon(1, 500, 60, -1, 10), "Attribute value out of bounds");
         assertThrows(IllegalArgumentException.class,
-                () -> pokemonFactory.createPokemon(1, 500, 60, 10, 16), "Defense value out of bounds");
+                () -> pokemonFactory.createPokemon(1, 500, 60, 10, -1), "Attribute value out of bounds");
         assertThrows(IllegalArgumentException.class,
-                () -> pokemonFactory.createPokemon(1, 500, 60, 10, 10), "Stamina value out of bounds");
+                () -> pokemonFactory.createPokemon(1, 500, 60, 10, 16), "Attribute value out of bounds");
     }
 
 
