@@ -17,7 +17,8 @@ workflows:
   version: 2
   upload-to-codecov:
     jobs:
-      - checkout
+      - checkout  # Ajout du job checkout
+      - build-and-test
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml
           flags: unit
