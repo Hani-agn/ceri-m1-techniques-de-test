@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: cimg/openjdk:17.0
     steps:
-      - checkout  # Assurez-vous que l'étape de checkout est toujours présente
+      - checkout
       - run:
           name: Run Maven Test
           command: mvn test
@@ -22,7 +22,7 @@ jobs:
           file: target/site/jacoco/jacoco.xml
           flags: unit
           name: codecov-umbrella
-          token: $CODECOV_TOKEN
+          token: $CODECOV_TOKEN  # Utilisation de la variable d'environnement
 
 workflows:
   version: 2
