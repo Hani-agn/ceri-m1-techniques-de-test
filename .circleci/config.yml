@@ -8,9 +8,6 @@ workflows:
   upload-to-codecov:
     jobs:
       - build-and-test
-      - codecov/upload:
-          requires:
-            - build-and-test
 
 jobs:
   build-and-test:
@@ -22,4 +19,5 @@ jobs:
           name: Run Maven Test
           command: mvn test
       - codecov/upload:
+          file: target/site/jacoco/jacoco.xml
           token: YOUR_CODECOV_TOKEN
