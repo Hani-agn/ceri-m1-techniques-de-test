@@ -23,8 +23,15 @@ jobs:
           token: YOUR_CODECOV_TOKEN
 
   build-and-test-on-master:
-    jobs:
-      - build-and-test:
-          filters:
-            branches:
-              only: master
+    docker:
+      - image: cimg/openjdk:17.0
+    steps:
+      - checkout
+      - run:
+          name: Run Maven Test on Master
+          command: mvn test
+      - codecov/upload:
+          token: YOUR_CODECOV_TOKEN
+    filters:
+      branches:
+        only: master
