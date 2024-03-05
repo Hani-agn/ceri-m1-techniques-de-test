@@ -8,26 +8,30 @@ jobs:
     docker:
       - image: cimg/openjdk:17.0
     steps:
-      - checkout
+      - checkout  # Assurez-vous que l'étape de checkout est toujours présente
       - run:
           name: Run Maven Test
           command: mvn test
 
-workflows:
-  version: 2
   upload-to-codecov:
-    jobs:
-      - checkout  # Ajout du job checkout
-      - build-and-test
+    docker:
+      - image: cimg/openjdk:17.0
+    steps:
+      - checkout
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml
           flags: unit
           name: codecov-umbrella
           token: $CODECOV_TOKEN
 
+workflows:
+  version: 2
   build-and-test-on-master:
     jobs:
       - build-and-test:
           filters:
             branches:
               only: master
+      - upload-to-codecov:
+          requires:
+            - build-and-test
