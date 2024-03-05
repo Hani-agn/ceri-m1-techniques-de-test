@@ -32,6 +32,3 @@ jobs:
           command: mvn test
       - codecov/upload:
           token: YOUR_CODECOV_TOKEN
-    filters:
-      branches:
-        only: master
