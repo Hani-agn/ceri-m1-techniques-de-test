@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   codecov: codecov/codecov@4.0.1
+
 jobs:
   build-and-test:
     docker:
@@ -12,9 +13,7 @@ jobs:
           command: mvn test
       - run:
           name: upload-to-codecov
-          command: |
-            mvn clean test
-            bash <(curl -s https://codecov.io/bash)
+          command: bash <(curl -s https://codecov.io/bash)
   
 
 workflows:
