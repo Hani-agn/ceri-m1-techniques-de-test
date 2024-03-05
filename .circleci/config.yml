@@ -7,8 +7,10 @@ workflows:
   version: 2
   upload-to-codecov:
     jobs:
-      - checkout
-      - codecov/upload
+      - build-and-test
+      - codecov/upload:
+          requires:
+            - build-and-test
 
 jobs:
   build-and-test:
@@ -18,17 +20,6 @@ jobs:
       - checkout
       - run:
           name: Run Maven Test
-          command: mvn test
-      - codecov/upload:
-          token: YOUR_CODECOV_TOKEN
-
-  build-and-test-on-master:
-    docker:
-      - image: cimg/openjdk:17.0
-    steps:
-      - checkout
-      - run:
-          name: Run Maven Test on Mast
           command: mvn test
       - codecov/upload:
           token: YOUR_CODECOV_TOKEN
