@@ -28,7 +28,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run Maven Test on Master
+          name: Run Maven Test on Mast
           command: mvn test
       - codecov/upload:
           token: YOUR_CODECOV_TOKEN
