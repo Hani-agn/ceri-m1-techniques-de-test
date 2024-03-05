@@ -1,14 +1,5 @@
 version: 2.1
 
-orbs:
-  codecov: codecov/codecov@1.0.1
-
-workflows:
-  version: 2
-  upload-to-codecov:
-    jobs:
-      - build-and-test
-
 jobs:
   build-and-test:
     docker:
@@ -18,6 +9,21 @@ jobs:
       - run:
           name: Run Maven Test
           command: mvn test
+orbs:
+  codecov: codecov/codecov@4.0.1
+workflows:
+  upload-to-codecov:
+    jobs:
+      - checkout
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml
-          token: YOUR_CODECOV_TOKEN
+          flags: unit
+          name: codecov-umbrella
+          token: $CODECOV_TOKEN
+  version: 2
+  build-and-test-on-master:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only: master
