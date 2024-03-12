@@ -6,7 +6,7 @@ orbs:
 jobs:
   build-and-test:
     docker:
-      - image: circleci/openjdk:17-ea-buster-node-browsers-legacy
+      - image: cimg/openjdk:17.0
     steps:
       - checkout
       - run:
@@ -17,9 +17,8 @@ jobs:
           command: mvn jacoco:report
       - run:
           name: upload-to-codecov
-          command: |
-            # Ajoutez ici une étape de débogage pour vérifier le contenu du script bash téléchargé
-            bash <(curl -s https://codecov.io/bash)
+          command: bash <(curl -s https://codecov.io/bash)
+
 
 workflows:
   version: 2
