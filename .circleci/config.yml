@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Run Maven Test
-          command: mvn test -x
+          command: mvn test -X
       - run:
           name: coverage
           command: mvn jacoco:report
