@@ -17,8 +17,9 @@ jobs:
           command: mvn jacoco:report
       - run:
           name: upload-to-codecov
-          command: bash <(curl -s https://codecov.io/bash)
-  
+          command: |
+            # Ajoutez ici une étape de débogage pour vérifier le contenu du script bash téléchargé
+            bash <(curl -s https://codecov.io/bash)
 
 workflows:
   version: 2
