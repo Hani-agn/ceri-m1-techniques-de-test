@@ -26,6 +26,7 @@ public class IPokedexFactoryTest {
 
     @Test
     public void testCreatePokedex() {
+
         // Configuration du mock de pokedexFactory pour retourner une instance de pokedex
         // lors de l'appel à createPokedex avec les mocks de metadataProvider et pokemonFactory
         when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(mock(IPokedex.class));
