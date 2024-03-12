@@ -6,12 +6,12 @@ orbs:
 jobs:
   build-and-test:
     docker:
-      - image: cimg/openjdk:17.0
+      - image: circleci/openjdk:17-ea-buster-node-browsers-legacy
     steps:
       - checkout
       - run:
           name: Run Maven Test
-          command: mvn test
+          command: mvn test -x
       - run:
           name: coverage
           command: mvn jacoco:report
