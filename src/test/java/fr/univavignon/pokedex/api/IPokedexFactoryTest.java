@@ -19,7 +19,7 @@ public class IPokedexFactoryTest {
     @BeforeEach
     public void setUp() {
         // Initialisation des mocks
-        pokedexFactory = mock(IPokedexFactory.class);
+        pokedexFactory = new PokedexFactory();
         metadataProvider = mock(IPokemonMetadataProvider.class);
         pokemonFactory = mock(IPokemonFactory.class);
     }
@@ -27,9 +27,8 @@ public class IPokedexFactoryTest {
     @Test
     public void testCreatePokedex() {
 
-        // Configuration du mock de pokedexFactory pour retourner une instance de pokedex
-        // lors de l'appel à createPokedex avec les mocks de metadataProvider et pokemonFactory
-        when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(mock(IPokedex.class));
+
+        //when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(mock(IPokedex.class));
 
         // Appel de la méthode à tester
         IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
@@ -37,8 +36,5 @@ public class IPokedexFactoryTest {
         // Vérification que l'instance de pokedex retournée n'est pas null
         assertNotNull(pokedex, "La factory doit retourner une instance non nulle de IPokedex");
 
-        // Ici, vous pouvez ajouter des vérifications supplémentaires si nécessaire,
-        // par exemple, vérifier que les méthodes de l'instance retournée peuvent être appelées
-        // et retournent des valeurs ou comportements attendus.
     }
 }

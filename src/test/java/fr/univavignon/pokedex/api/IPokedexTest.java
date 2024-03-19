@@ -44,7 +44,7 @@ public class IPokedexTest {
                 4, // candy
                 56 // iv
         );
-//        when(pokedex.addPokemon(pokemon)).thenReturn(1);
+        // when(pokedex.addPokemon(pokemon)).thenReturn(1);
         assertEquals(1, pokedex.addPokemon(pokemon));
     }
 
