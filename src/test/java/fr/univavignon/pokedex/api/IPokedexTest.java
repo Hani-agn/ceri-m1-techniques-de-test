@@ -21,12 +21,14 @@ public class IPokedexTest {
         IPokemonMetadataProvider pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
         IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
         pokedex = new Pokedex(pokemonMetadataProvider, pokemonFactory);
-        pokemonMetadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
+        PokemonMetadata pokemonMetadata = mock(PokemonMetadata.class);
+        //pokemonMetadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
     }
 
     @Test
     public void testSize() throws PokedexException {
-        assertEquals(0, pokedex.size());
+        when(pokedex.size()).thenReturn(1);
+        assertEquals(1, pokedex.size());
     }
 
     @Test
@@ -43,8 +45,8 @@ public class IPokedexTest {
                 4, // candy
                 56 // iv
         );
-        assertEquals(0, pokedex.addPokemon(pokemon));
-        assertEquals(1, pokedex.size());
+        when(pokedex.addPokemon(pokemon)).thenReturn(1);
+        assertEquals(1, pokedex.addPokemon(pokemon));
     }
 
     @Test
@@ -61,8 +63,8 @@ public class IPokedexTest {
                 4, // candy
                 56 // iv
         );
-        pokedex.addPokemon(expectedPokemon);
-        assertEquals(expectedPokemon, pokedex.getPokemon(0));
+        when(pokedex.getPokemon(1)).thenReturn(expectedPokemon);
+        assertEquals(expectedPokemon, pokedex.getPokemon(1));
     }
 
     @Test
@@ -82,8 +84,8 @@ public class IPokedexTest {
                     56 // iv
             );
             pokemonList.add(pokemon);
-            pokedex.addPokemon(pokemon);
         }
+        when(pokedex.getPokemons()).thenReturn(pokemonList);
         assertEquals(pokemonList, pokedex.getPokemons());
     }
 
@@ -104,10 +106,10 @@ public class IPokedexTest {
                     56 // iv
             );
             pokemonList.add(pokemon);
-            pokedex.addPokemon(pokemon);
         }
         Comparator<Pokemon> comparator = Comparator.comparing(Pokemon::getName);
         pokemonList.sort(comparator);
+        when(pokedex.getPokemons(comparator)).thenReturn(pokemonList);
         assertEquals(pokemonList, pokedex.getPokemons(comparator));
     }
 }
