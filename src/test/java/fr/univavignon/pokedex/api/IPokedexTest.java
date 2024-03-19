@@ -22,6 +22,7 @@ public class IPokedexTest {
         IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
         pokedex = new Pokedex(pokemonMetadataProvider, pokemonFactory);
         PokemonMetadata pokemonMetadata = mock(PokemonMetadata.class);
+        //commentaire pour le test
         //pokemonMetadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
     }
 
