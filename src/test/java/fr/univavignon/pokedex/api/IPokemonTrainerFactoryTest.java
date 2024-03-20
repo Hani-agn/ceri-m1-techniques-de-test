@@ -19,12 +19,12 @@ public class IPokemonTrainerFactoryTest {
     @BeforeEach
     public void setUp() {
         // Création des mocks pour IPokedexFactory et IPokedex
-        trainerFactory = mock(IPokemonTrainerFactory.class);
-        pokedexFactory = mock(IPokedexFactory.class);
-        pokedex = mock(IPokedex.class);
+        trainerFactory = new PokemonTrainerFactory();
+        pokedexFactory = new PokedexFactory();
+        pokedex = new Pokedex(new PokemonMetadatProvider(), new PokemonFactory());
 
         // Configuration du mock pokedexFactory pour retourner un pokedex mocké
-        when(pokedexFactory.createPokedex(any(), any())).thenReturn(pokedex);
+        //when(pokedexFactory.createPokedex(any(), any())).thenReturn(pokedex);
     }
 
     @Test
@@ -34,8 +34,8 @@ public class IPokemonTrainerFactoryTest {
         Team expectedTeam = Team.MYSTIC;
 
         // Configuration du mock trainerFactory pour retourner un PokemonTrainer
-        when(trainerFactory.createTrainer(eq(expectedName), eq(expectedTeam), any(IPokedexFactory.class)))
-                .thenReturn(new PokemonTrainer(expectedName, expectedTeam, pokedex));
+       // when(trainerFactory.createTrainer(eq(expectedName), eq(expectedTeam), any(IPokedexFactory.class)))
+       //         .thenReturn(new PokemonTrainer(expectedName, expectedTeam, pokedex));
 
         // Création du PokemonTrainer via la factory
         PokemonTrainer trainer = trainerFactory.createTrainer(expectedName, expectedTeam, pokedexFactory);
