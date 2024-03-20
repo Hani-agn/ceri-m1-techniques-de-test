@@ -33,15 +33,14 @@ Le rendu des TPs se fait au rythme suivant :
 
 Pour chaque rendu vous devez créer un tag à partir du commit qui correspond à la complétion du TP.  
 Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin de séance sera celui considéré.
+## Auteur
+- Hani Agguini
 
-Nom et Prénom
+## Groupe
+- M1-IA-Alternant
 
-_ Nom     : Agguini
-
-_ Prenom  : Hani
-
-Groupe
-
-_Groupe   : m1-IA-Alternant
+## Badges
+[![CircleCI](https://circleci.com/gh/Hani-agn/ceri-m1-techniques-de-test.svg?style=svg)](https://circleci.com/gh/Hani-agn/ceri-m1-techniques-de-test)
+[![Coverage Status](https://coveralls.io/repos/github/Hani-agn/ceri-m1-techniques-de-test/badge.svg?branch=main)](https://coveralls.io/github/Hani-agn/ceri-m1-techniques-de-test?branch=main)
 
 [^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
