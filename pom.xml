@@ -129,6 +129,38 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <!-- Clean gh-pages directory -->
+                                <delete dir="${project.build.directory}/gh-pages"/>
+                                <!-- Copy Javadoc files to gh-pages directory -->
+                                <copy todir="${project.build.directory}/gh-pages">
+                                    <fileset dir="${project.build.directory}/docs"/>
+                                </copy>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/gh-pages</altDeploymentRepository>
+                </configuration>
+            </plugin>
 
         </plugins>
     </build>
