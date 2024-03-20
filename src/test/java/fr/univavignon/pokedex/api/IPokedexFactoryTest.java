@@ -30,7 +30,6 @@ public class IPokedexFactoryTest {
 
         //when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(mock(IPokedex.class));
 
-        // Appel de la méthode à tester
         IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
 
         // Vérification que l'instance de pokedex retournée n'est pas null
