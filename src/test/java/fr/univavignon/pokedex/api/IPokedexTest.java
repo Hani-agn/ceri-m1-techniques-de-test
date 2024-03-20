@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -20,8 +21,9 @@ public class IPokedexTest {
     public void setUp() throws PokedexException {
         IPokemonMetadataProvider pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
         IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
-        pokedex = new Pokedex(pokemonMetadataProvider, pokemonFactory);
         pokemonMetadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
+        pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
+        pokedex = new Pokedex(pokemonMetadataProvider, pokemonFactory);
     }
 
     @Test
@@ -114,4 +116,42 @@ public class IPokedexTest {
     //    when(pokedex.getPokemons(comparator)).thenReturn(pokemonList);
         assertEquals(pokemonList, pokedex.getPokemons(comparator));
     }
+    @Test
+    public void testGetPokemonMetadata() throws PokedexException {
+
+        IPokemonMetadataProvider pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
+
+        PokemonMetadata expectedMetadata = new PokemonMetadata(0, "Bulbasaur", 126, 126, 90);
+
+        when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(expectedMetadata);
+
+        pokedex = new Pokedex(pokemonMetadataProvider, mock(IPokemonFactory.class));
+
+        assertEquals(expectedMetadata, pokedex.getPokemonMetadata(0));
+    }
+    @Test
+    public void testCreatePokemon() throws PokedexException {
+
+        IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
+
+        Pokemon expectedPokemon = new Pokemon(
+                0, // index
+                "Bulbizarre", // name
+                126, // attack
+                126, // defense
+                90, // stamina
+                613, // cp
+                64, // hp
+                4000, // dust
+                4, // candy
+                56 // iv
+        );
+
+        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(expectedPokemon);
+
+        pokedex = new Pokedex(mock(IPokemonMetadataProvider.class), pokemonFactory);
+
+        assertEquals(expectedPokemon, pokedex.createPokemon(0, 613, 64, 4000, 4));
+    }
+
 }
