@@ -39,8 +39,13 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 ## Groupe
 - M1-IA-Alternant
 
-## Badges
-[![CircleCI](https://circleci.com/gh/Hani-agn/ceri-m1-techniques-de-test.svg?style=svg)](https://circleci.com/gh/Hani-agn/ceri-m1-techniques-de-test)
-[![Coverage Status](https://coveralls.io/repos/github/Hani-agn/ceri-m1-techniques-de-test/badge.svg?branch=main)](https://coveralls.io/github/Hani-agn/ceri-m1-techniques-de-test?branch=main)
+## Build & Test Status
+j ai un soucis avec Mon compte CircleCI
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Hani-agn/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Hani-agn/ceri-m1-techniques-de-test/tree/master)
+
+## Code Coverage
+
+[![codecov](https://codecov.io/gh/Hani-agn/ceri-m1-techniques-de-test/graph/badge.svg?token=2AH6NOTZK2)](https://codecov.io/gh/Hani-agn/ceri-m1-techniques-de-test)
 
 [^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
