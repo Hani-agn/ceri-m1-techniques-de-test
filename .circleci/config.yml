@@ -20,7 +20,11 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash)
       - run:
           name: generate-java-doc
-          command: javadoc src/main/java/fr/univavignon/pokedex/api/* -d docs
+          command: mvn javadoc:javadoc
+      - run:
+          name: upload-checkstyle-report
+          command: mvn site
+
 
 
 workflows:
