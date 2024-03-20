@@ -98,21 +98,12 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.13</version>
-                <configuration>
-                    <outputDirectory>target/site</outputDirectory>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>site</id>
-                        <phase>site</phase>
-                        <goals>
-                            <goal>site</goal>
-                        </goals>
-                    </execution>
-                </executions>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>3.9.1</version>
+            <configuration>
+                <outputDirectory>target/site</outputDirectory>
+            </configuration>
             </plugin>
         </plugins>
     </build>

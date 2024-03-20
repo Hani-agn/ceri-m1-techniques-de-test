@@ -49,6 +49,6 @@ j ai un soucis avec Mon compte CircleCI
 [![codecov](https://codecov.io/gh/Hani-agn/ceri-m1-techniques-de-test/graph/badge.svg?token=2AH6NOTZK2)](https://codecov.io/gh/Hani-agn/ceri-m1-techniques-de-test)
 
 ## Badge checkstyle
-![Checkstyle](target/site/checkstyle.html)
+![Checkstyle](target/site/badges/checkstyle-result.svg)
 
 [^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
