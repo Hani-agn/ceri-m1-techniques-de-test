@@ -21,6 +21,9 @@ jobs:
       - run:
           name: generate-java-doc
           command: javadoc src/main/java/fr/univavignon/pokedex/api/* -d docs
+      - run:
+          name: upload-java-doc
+          command: mvn javadoc:javadoc
 
 
 workflows:
