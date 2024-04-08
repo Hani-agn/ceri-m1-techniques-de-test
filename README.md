@@ -40,6 +40,7 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 - M1-IA-Alternant
 
 ## Build & Test Status
+
     
 [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/XBp1AFwr8eHdArhSEtcyDN/78kMs82YpTqBZWETHzqejS/tree/master.svg?style=svg)](https://app.circleci.com/pipelines/circleci/XBp1AFwr8eHdArhSEtcyDN/78kMs82YpTqBZWETHzqejS?branch=master)
 ## Code Coverage
