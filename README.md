@@ -41,9 +41,8 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 ## Build & Test Status
 j ai un soucis avec Mon compte CircleCI
-
-[![CircleCI](https://circleci.com/gh/Hani-agn/ceri-m1-techniques-de-test.svg?style=svg)](https://circleci.com/gh/Hani-agn/ceri-m1-techniques-de-test)
-
+    
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/XBp1AFwr8eHdArhSEtcyDN/78kMs82YpTqBZWETHzqejS/tree/master.svg?style=svg)](https://app.circleci.com/pipelines/circleci/XBp1AFwr8eHdArhSEtcyDN/78kMs82YpTqBZWETHzqejS?branch=master)
 ## Code Coverage
 
 [![codecov](https://codecov.io/gh/Hani-agn/ceri-m1-techniques-de-test/graph/badge.svg?token=2AH6NOTZK2)](https://codecov.io/gh/Hani-agn/ceri-m1-techniques-de-test)
