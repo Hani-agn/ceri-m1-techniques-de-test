@@ -10,7 +10,6 @@ public class IPokemonFactoryTest {
     private IPokemonFactory pokemonFactory;
     private IPokemonMetadataProvider metadataProvider;
 
-    private RocketPokemonFactory rocketPokemonFactory;
 
     @BeforeEach
     public void setUp() {
