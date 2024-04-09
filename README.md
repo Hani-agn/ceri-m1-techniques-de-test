@@ -1,32 +1,11 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
-
-## Introduction
-
-Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
-Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant la roadmap suivante : 
-- Setup du projet
-- Mise en place des outils d’intégration continue
-- Écriture des tests unitaires
-- Écriture des mocks, et validation des tests
-- Développement dirigé par les tests
-- Documentation et conventions de style
-- Test d'une implémentation donnée
-
-Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la main.
-
-## Sujets
-
-L'ensemble des sujets de TPs peut être trouvé dans le dossier `TPs`.
-
-Le dossier `src` contient la définition de l'ensemble des interfaces qui seront l'objet de vos travaux.
-
 ## Rendus
 
 Le rendu des TPs se fait au rythme suivant :
 
-- TP1 : 2ème séance
-- TP2 : 2ème séance
-- TP3 : 3ème séance
+- TP1 : 6 fevrier 2024 id_commit : 9425937
+- TP2 : 13 fevrier 2024 id_commit : 35db0bb
+- TP3 : 5 mars 2024 id_commit : 4142af7
 - TP4 : 5ème séance
 - TP5 : dernière séance
 - TP6 : dernière séance
