@@ -31,3 +31,21 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 ## Badge checkstyle
 ![Checkstyle](target/site/badges/checkstyle-result.svg)
 
+## Rapport pour TP6
+
+Les tests unitaires pour la classe RocketPokemonFactory ont été exécutés avec succès, couvrant les fonctionnalités essentielles de la génération de Pokémon. Voici un résumé des tests et de leurs résultats :
+
+Test de Création de Pokémon avec Index Valide
+
+Objectif : Vérifier que la méthode createPokemon crée correctement un Pokémon lorsque l'index fourni est valide et présent dans la map index2name.
+
+Résultat : Le test a confirmé que le Pokémon créé avec un index valide (Bulbasaur avec l'index 1) avait le bon nom, les CP, HP, la poussière et les bonbons assignés correctement, et un IV de 1,0 comme attendu.
+
+Test de Création de Pokémon avec Index Invalide
+
+Objectif : S'assurer que la méthode createPokemon attribue le nom "MISSINGNO" et un IV de 0 pour un index qui n'est pas présent dans la map index2name.
+
+Résultat : Le test a validé que lorsqu'un index invalide est utilisé, le Pokémon créé est bien "MISSINGNO" et l'IV est de 0, indiquant que les valeurs par défaut sont correctement utilisées.
+
+## Conclusions
+Les tests ont été exécutés avec JUnit et ont tous passé sans aucune exception. Ces résultats indiquent que la classe RocketPokemonFactory fonctionne comme prévu pour les cas de test considérés.
