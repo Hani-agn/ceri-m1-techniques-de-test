@@ -6,9 +6,9 @@ Le rendu des TPs se fait au rythme suivant :
 - TP1 : 6 fevrier 2024 id_commit : 9425937
 - TP2 : 13 fevrier 2024 id_commit : 35db0bb
 - TP3 : 5 mars 2024 id_commit : 4142af7
-- TP4 : 8 avril 2024 id_commit : 0268bac
-- TP5 : 8 avril 2024 id_commit : 0268bac
-- TP6 : dernière séance
+- TP4 : 8 avril 2024 id_commit : 8bc7120
+- TP5 : 8 avril 2024 id_commit : 8bc7120
+- TP6 : 8 avril 2024 id_commit : 8bc7120
 
 Pour chaque rendu vous devez créer un tag à partir du commit qui correspond à la complétion du TP.  
 Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin de séance sera celui considéré.
